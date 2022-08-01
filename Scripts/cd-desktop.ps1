@@ -13,6 +13,9 @@
 #>
 
 try {
+	$Path = resolve-path "$HOME/Desktop"
+	cd $Path
+<#
 	if ($IsLinux) {
 		$Path = resolve-path "$HOME/Desktop"
 	} else {
@@ -24,6 +27,7 @@ try {
 	set-location "$Path"
 	"📂$Path"
 	exit 0 # success
+#>	
 } catch {
 	"⚠️ Error: $($Error[0]) ($($MyInvocation.MyCommand.Name):$($_.InvocationInfo.ScriptLineNumber))"
 	exit 1
